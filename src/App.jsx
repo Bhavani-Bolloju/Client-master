@@ -1,7 +1,12 @@
 import React from "react";
+import PreviewPage from "./pages/PreviewPage";
 
 function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <PreviewPage />
+    </div>
+  );
 }
 
 export default App;
