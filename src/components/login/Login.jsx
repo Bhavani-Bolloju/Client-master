@@ -27,75 +27,98 @@ function Login() {
 
   return (
     <FormWrapper>
-      <Form>
+      <div className="form-container">
         <h1>Welcome</h1>
-        <p>Enter your name and password</p>
-        <TextField
-          id="outlined-email-input"
-          label="Email address"
-          type="email"
-          autoComplete="current-email"
-        />
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
-            Password
-          </InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
+        <p>Enter your username and password</p>
+        <Form>
+          <TextField
+            id="outlined-email-input"
+            label="Email address"
+            type="email"
+            autoComplete="current-email"
           />
-        </FormControl>
-        <FormButton variant="contained">Login</FormButton>
-        <p>Forgot Password?</p>
-      </Form>
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+            />
+          </FormControl>
+          <FormButton variant="contained">Login</FormButton>
+          <p>Forgot Password?</p>
+        </Form>
+      </div>
       <Footer>
-        <div>
-          <span>Terms of use</span>
-          <span>Privacy policy</span>
-        </div>
-        <p> Punctualiti 2022. All rights reserved</p>
+        <p className="terms">
+          <span>Terms Of Use</span>
+          <span>Privacy Policy</span>
+        </p>
+        <p className="rights">&#169; Punctualiti 2022. All rights reserved</p>
       </Footer>
     </FormWrapper>
   );
 }
+
+const FormWrapper = styled.div`
+  && {
+    width: 70%;
+    justify-self: center;
+    text-align: center;
+    display: grid;
+    font-size: 1.1rem;
+    color: #444;
+
+    .form-container {
+      align-self: end;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    h1 + p {
+      margin-bottom: 2rem;
+      color: #6f6f6f;
+      letter-spacing: -0.5px;
+    }
+
+    input,
+    button {
+      padding: 1.1rem;
+    }
+    label {
+      font-family: inherit;
+    }
+  }
+`;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-self: end;
   gap: 1rem;
-`;
-
-const FormWrapper = styled.div`
-  width: 70%;
-  justify-self: center;
-  text-align: center;
-  display: grid;
-
-  h1 {
-    font-size: 2rem;
-  }
 
   p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  input,
-  button {
-    padding: 1.1rem;
+    color: #6f6f6f;
+    font-weight: 600;
   }
 `;
 
@@ -103,15 +126,17 @@ const Footer = styled.footer`
   font-size: 1rem;
   align-self: end;
   justify-self: center;
-  width: fit-content;
-  div {
+
+  .terms {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
   }
-  p {
-    font-size: inherit;
+
+  .rights {
+    font-size: 0.8rem;
   }
+
   margin-bottom: 2rem;
 `;
 
