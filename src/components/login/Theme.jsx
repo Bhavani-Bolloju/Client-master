@@ -9,13 +9,13 @@ function Theme() {
           <div className="theme-1"></div>
           <div className="theme-2"></div>
         </div>
-        <p className="theme-title">
+        <div className="theme-title">
           <p className="theme-heading">360° Solution for Asset Management</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-        </p>
+        </div>
       </div>
     </ThemeWrapper>
   );

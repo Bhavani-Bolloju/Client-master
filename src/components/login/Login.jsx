@@ -1,42 +1,85 @@
-import React from "react";
-import Box from "@mui/material/Box";
+import React, { useState, useRef } from "react";
 import IconButton from "@mui/material/IconButton";
-import Input from "@mui/material/Input";
-import FilledInput from "@mui/material/FilledInput";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
-// import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
 
 function Login() {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [error, setError] = useState(null);
+  const [isloggedIn, setIsLoggedIn] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const formHandler = async function (e) {
+    const password = passwordRef.current.querySelector("input").value;
+    const email = emailRef.current.querySelector("input").value;
+
+    if (password.trim().length <= 0 || email.trim().length <= 0) {
+      return;
+    }
+
+    let url;
+    if (isloggedIn) {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword";
+    } else {
+      url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp";
+    }
+
+    try {
+      const sendData = await fetch(
+        `${url}?key=${"AIzaSyD2ooMj4r04OZlAyOPa58O35Z-dIOniSpA"}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": " application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            returnSecureToken: true,
+          }),
+        }
+      );
+      const res = await sendData.json();
+
+      if (!sendData.ok) throw new Error(res.error.message);
+
+      console.log("sucess");
+    } catch (error) {
+      setError(error.message);
+    }
+    passwordRef.current.querySelector("input").value = "";
+    emailRef.current.querySelector("input").value = "";
   };
 
   return (
     <FormWrapper>
       <div className="form-container">
         <h1>Welcome</h1>
-        <p>Enter your username and password</p>
+        <p>Enter your Email address and password</p>
         <Form>
           <TextField
-            id="outlined-email-input"
+            required
+            id="outlined-basic"
             label="Email address"
+            variant="outlined"
             type="email"
-            autoComplete="current-email"
+            ref={emailRef}
+            onFocus={() => {
+              setError(null);
+            }}
           />
+
           <FormControl variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
               Password
@@ -44,12 +87,13 @@ function Login() {
             <OutlinedInput
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
+              required
+              ref={passwordRef}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -59,7 +103,23 @@ function Login() {
               label="Password"
             />
           </FormControl>
-          <FormButton variant="contained">Login</FormButton>
+          <FormButton onClick={formHandler} variant="contained">
+            {isloggedIn ? "Log In" : "Sign Up"}
+          </FormButton>
+          {error && <p className="error"> {error}</p>}
+
+          <p>
+            Already have an Account{" "}
+            <button
+              type="button"
+              className="switch"
+              onClick={() => {
+                setIsLoggedIn((prev) => !prev);
+              }}
+            >
+              signin?
+            </button>
+          </p>
           <p>Forgot Password?</p>
         </Form>
       </div>
@@ -116,6 +176,22 @@ const Form = styled.form`
   align-self: end;
   gap: 1rem;
 
+  .switch {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    display: inline;
+    padding: 0 !important;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .error {
+    color: red;
+  }
   p {
     color: #6f6f6f;
     font-weight: 600;
@@ -151,3 +227,42 @@ const FormButton = styled(Button)`
 `;
 
 export default Login;
+
+/*
+if (email.trim().length === 0 && password.trim().length === 0) {
+  return;
+}
+
+console.log("clicked");
+
+try {
+  const sendData = await fetch(
+    `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${"AIzaSyD2ooMj4r04OZlAyOPa58O35Z-dIOniSpA"}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": " application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        returnSecureToken: true,
+      }),
+    }
+  );
+
+  console.log(sendData);
+
+  // console.log(sendData);
+  const res = await sendData.json();
+  console.log(res);
+  // if (!sendData.ok) {
+  //   throw new Error(res.error.message);
+  // }
+} catch (error) {
+  console.log(error);
+  // setError(error.message);
+}
+setEmail("");
+setPassword("");
+console.log("reset");*/
