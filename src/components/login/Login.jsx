@@ -109,7 +109,7 @@ function Login() {
           {error && <p className="error"> {error}</p>}
 
           <p>
-            Already have an Account{" "}
+            {isloggedIn ? "Don't" : "Already"} have an Account{" "}
             <button
               type="button"
               className="switch"
@@ -117,7 +117,7 @@ function Login() {
                 setIsLoggedIn((prev) => !prev);
               }}
             >
-              signin?
+              {isloggedIn ? "signup?" : "Login?"}
             </button>
           </p>
           <p>Forgot Password?</p>
@@ -141,7 +141,7 @@ const FormWrapper = styled.div`
     text-align: center;
     display: grid;
     font-size: 1.1rem;
-    color: #444;
+    color: #686687;
 
     .form-container {
       align-self: end;
@@ -202,6 +202,7 @@ const Footer = styled.footer`
   font-size: 1rem;
   align-self: end;
   justify-self: center;
+  color: #233244;
 
   .terms {
     display: flex;
