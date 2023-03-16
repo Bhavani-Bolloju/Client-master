@@ -16,3 +16,11 @@ body {
 .required::-webkit-input-placeholder {
   content: "*";
 }
+
+.section-add_client {
+  padding: 2rem;
+  background-color: #fff;
+  padding-bottom: 4rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}

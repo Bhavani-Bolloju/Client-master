@@ -41,17 +41,14 @@ function ClientMaster() {
 }
 
 const Main = styled.main`
-  display: flex;
+  display: grid;
   height: 108rem;
   background-color: #f5f5f5;
+  grid-auto-flow: column;
+  grid-template-columns: 22% 1fr;
 
   nav {
     background-color: #ffffff;
-    padding: 1.5rem;
-    flex-basis: 23%;
-  }
-  section {
-    flex-grow: 1;
   }
 `;
 
@@ -60,6 +57,7 @@ const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+    padding: 1.5rem;
 
     label {
       border: 1px solid #e6e6e6;

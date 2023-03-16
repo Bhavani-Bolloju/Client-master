@@ -5,7 +5,7 @@ import styled from "styled-components";
 function AddClient() {
   return (
     <AddclienWrapper>
-      <h4>Add Client</h4>
+      <h3>Add Client</h3>
       <nav>
         <ul>
           <li>
@@ -52,7 +52,7 @@ function AddClient() {
 const AddclienWrapper = styled.section`
   && {
     padding: 1rem;
-    h4 {
+    h3 {
       font-size: 2rem;
       color: #030037;
       margin-bottom: 2rem;
