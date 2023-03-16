@@ -6,7 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 
 function ClientMaster() {
   return (
-    <SideBar>
+    <Main>
       <Nav>
         <h3>company name</h3>
         <label>
@@ -33,25 +33,25 @@ function ClientMaster() {
           </li>
         </ul>
       </Nav>
-      <section>
+      <section className="main-section">
         <Outlet />
       </section>
-    </SideBar>
+    </Main>
   );
 }
 
-const SideBar = styled.main`
+const Main = styled.main`
   display: flex;
   height: 108rem;
+  background-color: #f5f5f5;
 
   nav {
+    background-color: #ffffff;
     padding: 1.5rem;
     flex-basis: 23%;
-    background-color: #ffffff;
   }
   section {
     flex-grow: 1;
-    background-color: #f5f5f5;
   }
 `;
 

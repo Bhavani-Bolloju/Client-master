@@ -59,7 +59,8 @@ const AddclienWrapper = styled.section`
     }
 
     nav {
-      border-bottom: 2px solid #e6e6e6;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
       padding: 0;
       ul {
         list-style: none;
@@ -75,22 +76,22 @@ const AddclienWrapper = styled.section`
       }
 
       a {
+        padding: 1.8rem 2rem;
         width: 100%;
         text-decoration: none;
         color: #939596;
         text-transform: uppercase;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 1rem;
-        padding: 1.8rem 2rem;
         font-weight: 600;
         width: 100%;
-        border-bottom: 2px solid #fff;
+        border-bottom: 3px solid #e6e6e6;
 
         &.active {
-          border-bottom: 2px solid #153ac7;
+          border-bottom: 3px solid #153ac7;
           color: #153ac7;
         }
       }

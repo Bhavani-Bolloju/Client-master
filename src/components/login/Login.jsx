@@ -9,6 +9,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +17,7 @@ function Login() {
   const passwordRef = useRef();
   const [error, setError] = useState(null);
   const [isloggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -54,7 +56,7 @@ function Login() {
 
       if (!sendData.ok) throw new Error(res.error.message);
 
-      console.log("sucess");
+      navigate("/clientMaster");
     } catch (error) {
       setError(error.message);
     }
