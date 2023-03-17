@@ -145,6 +145,13 @@ const FormWrapper = styled.div`
     font-size: 1.1rem;
     color: #686687;
 
+    @media screen and (max-width: 950px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 650px) {
+      width: 60%;
+    }
+
     .form-container {
       align-self: end;
     }

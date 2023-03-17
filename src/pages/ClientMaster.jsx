@@ -38,14 +38,16 @@ function ClientMaster() {
 }
 
 const Main = styled.main`
-  display: grid;
   height: 108rem;
-  background-color: #f5f5f5;
-  grid-auto-flow: column;
-  grid-template-columns: 22% 1fr;
+  display: flex;
 
   nav {
     background-color: #ffffff;
+    min-width: 25%;
+  }
+  .main-section {
+    width: 100%;
+    background-color: #f5f5f5;
   }
 `;
 
@@ -55,6 +57,9 @@ const Nav = styled.nav`
     flex-direction: column;
     gap: 1.8rem;
     padding: 1.5rem;
+    @media screen and (max-width: 950px) {
+      display: none;
+    }
   }
 
   h3 {

@@ -24,6 +24,9 @@ function Theme() {
 const ThemeWrapper = styled.div`
   background-color: #1334b3;
   color: #fff;
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
 
   .container {
     width: 60%;
@@ -33,6 +36,11 @@ const ThemeWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 750px) {
+      width: 80%;
+    }
+
     .theme-title {
       text-align: center;
     }

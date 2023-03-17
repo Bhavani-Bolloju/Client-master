@@ -12,12 +12,19 @@ body {
   font-size: 1.6rem;
   font-family: "Inter", sans-serif;
 }
-/* background-color: #1334b3; */
+
+@media screen and (max-width: 950px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+
 .required::-webkit-input-placeholder {
   content: "*";
 }
 
 .section-add_client {
+  width: 100%;
   padding: 2rem;
   background-color: #fff;
   padding-bottom: 4rem;

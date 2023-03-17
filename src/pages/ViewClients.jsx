@@ -40,6 +40,9 @@ const Section = styled.section`
           font-size: 1.2rem;
           border-bottom: 1px solid #f8f9fd;
           padding: 1.8rem;
+          @media screen and (max-width: 1025px) {
+            padding: 1rem 0.8rem;
+          }
         }
 
         thead {
@@ -50,6 +53,10 @@ const Section = styled.section`
             color: #030037;
             background-color: #f8f9fd;
             padding: 1rem 1.5rem;
+
+            @media screen and (max-width: 1025px) {
+              padding: 1rem 0.5rem;
+            }
           }
         }
       }
