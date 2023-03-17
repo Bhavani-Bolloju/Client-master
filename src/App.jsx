@@ -7,7 +7,7 @@ import AddClient from "./pages/AddClient";
 import CreateProfile from "./components/addclient/CreateProfile";
 import PaymentSetup from "./components/addclient/PaymentSetup";
 import ThemeSetup from "./components/addclient/ThemeSetup";
-import ModuleSetup from "./components/addclient/ModuleSetup";
+import ModuleSetup from "./components/addclient/moduleSetup/ModuleSetup";
 
 function App() {
   return (

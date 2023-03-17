@@ -7,10 +7,10 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 
 export function SubmitButton() {
   return (
-    <SubmitBtn variant="save" type="submit">
+    <Btn variant="save" type="submit">
       <span>save & continue</span>
       <HiOutlineChevronRight />
-    </SubmitBtn>
+    </Btn>
   );
 }
 export function ResetButton() {
@@ -22,12 +22,16 @@ export function ResetButton() {
   );
 }
 
-const SubmitBtn = styled(Button)`
+export const ButtonWrapper = function (props) {
+  return <Btn>{props.children}</Btn>;
+};
+
+const Btn = styled(Button)`
   && {
     background-color: #153ac7;
     color: #ffffff;
     font-size: 1.3rem;
-    padding: 0.8rem 1.4rem;
+    padding: 0.5rem 1.4rem;
     text-transform: capitalize;
     font-weight: 500;
     display: flex;
@@ -37,6 +41,11 @@ const SubmitBtn = styled(Button)`
     &:hover {
       background-color: #1941e1;
     }
+  }
+  svg {
+    font-size: 1.6rem;
+    fill: #ffffff;
+    color: #ffffff;
   }
 `;
 
