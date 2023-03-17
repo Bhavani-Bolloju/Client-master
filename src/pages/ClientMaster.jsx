@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import InputSearch from "../components/ui/InputSearch";
+import HamburgerIcon from "../components/ui/HamburgerIcon";
 
 function ClientMaster() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Main>
-      <Nav>
+      <HamburgerIcon isOpen={isOpen} onOpen={setIsOpen} />
+      <Nav className={isOpen ? "active" : ""}>
         <h3>company name</h3>
         <InputSearch />
         <p>client master</p>
@@ -58,7 +61,18 @@ const Nav = styled.nav`
     gap: 1.8rem;
     padding: 1.5rem;
     @media screen and (max-width: 950px) {
-      display: none;
+      position: fixed;
+      right: 0;
+      height: 100%;
+      z-index: 10;
+      background-color: #ffffff78;
+      backdrop-filter: blur(10px);
+      transform: translateX(100%);
+      transition: all 1s;
+    }
+
+    &.active {
+      transform: translateX(0%);
     }
   }
 
