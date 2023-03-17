@@ -8,6 +8,7 @@ import CreateProfile from "./components/addclient/CreateProfile";
 import PaymentSetup from "./components/addclient/PaymentSetup";
 import ThemeSetup from "./components/addclient/ThemeSetup";
 import ModuleSetup from "./components/addclient/moduleSetup/ModuleSetup";
+import Success from "./components/addclient/Success";
 
 function App() {
   return (
@@ -15,15 +16,16 @@ function App() {
       <Routes>
         <Route path="/" element={<PreviewPage />} />
         <Route path="/clientMaster" element={<ClientMaster />}>
-          <Route index element={<Navigate to="viewClients" />}></Route>
-          <Route path="viewClients" element={<ViewClients />}></Route>
+          <Route index element={<Navigate to="viewClients" />} />
+          <Route path="viewClients" element={<ViewClients />} />
           <Route path="addClient" element={<AddClient />}>
-            <Route index element={<Navigate to="createProfile" />}></Route>
-            <Route path="createProfile" element={<CreateProfile />}></Route>
-            <Route path="payment" element={<PaymentSetup />}></Route>
-            <Route path="theme" element={<ThemeSetup />}></Route>
-            <Route path="module" element={<ModuleSetup />}></Route>
+            <Route index element={<Navigate to="createProfile" />} />
+            <Route path="createProfile" element={<CreateProfile />} />
+            <Route path="payment" element={<PaymentSetup />} />
+            <Route path="theme" element={<ThemeSetup />} />
+            <Route path="module" element={<ModuleSetup />} />
           </Route>
+          <Route path="success" element={<Success />}></Route>
         </Route>
       </Routes>
     </div>

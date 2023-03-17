@@ -4,10 +4,16 @@ import styled from "styled-components";
 
 import { VscDebugRestart } from "react-icons/vsc";
 import { HiOutlineChevronRight } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
-export function SubmitButton() {
+export function SubmitButton({ navigateTo = "/" }) {
+  const navigate = useNavigate();
+  const btnHandler = function () {
+    navigate(navigateTo);
+  };
+
   return (
-    <Btn variant="save" type="submit">
+    <Btn variant="save" type="submit" onClick={btnHandler}>
       <span>save & continue</span>
       <HiOutlineChevronRight />
     </Btn>

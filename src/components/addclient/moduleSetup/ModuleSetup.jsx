@@ -21,7 +21,7 @@ function ModuleSetup() {
           <SubModules />
         </div>
         <div className="form-btns">
-          <SubmitButton />
+          <SubmitButton navigateTo="/clientMaster/success" />
           <ResetButton />
         </div>
       </ModuleWrapper>

@@ -71,9 +71,11 @@ const Submodule = styled.div`
   border: 2px solid rgba(3, 0, 55, 0.08);
   padding: 1rem;
 
+  .gDZHfC.gDZHfC .css-ahj2mt-MuiTypography-root {
+    font-size: 1.2rem;
+  }
   .items {
     padding: 1rem;
-
     .css-j204z7-MuiFormControlLabel-root {
       margin-top: 0rem;
     }
