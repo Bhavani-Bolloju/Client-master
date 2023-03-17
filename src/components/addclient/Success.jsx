@@ -91,10 +91,16 @@ const SuccessPopup = styled.div`
   svg {
     color: #12b690;
     font-size: 2rem;
+    @media screen and (max-width: 750px) {
+      font-size: 1.5rem;
+    }
   }
   P {
     color: #030037;
     font-size: 1.4rem;
+    @media screen and (max-width: 750px) {
+      font-size: 1rem;
+    }
   }
 
   .nav-btns {
@@ -104,6 +110,9 @@ const SuccessPopup = styled.div`
 
     button {
       font-size: 1rem;
+      @media screen and (max-width: 750px) {
+        font-size: 0.8rem;
+      }
       &:first-child {
         color: #153ac7;
         background-color: #f8f9fd;

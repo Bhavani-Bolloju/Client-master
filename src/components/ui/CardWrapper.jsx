@@ -33,6 +33,16 @@ const CardItem = styled(Card)`
     flex-direction: column;
     align-items: center;
     border-radius: 1rem;
+
+    @media screen and (max-width: 950px) {
+      padding: 2rem 1rem;
+      min-width: 20rem;
+    }
+    @media screen and (max-width: 750px) {
+      padding: 2rem 1rem;
+      min-width: 18rem;
+    }
+
     .image {
       width: 6rem;
       height: 6rem;
@@ -41,9 +51,16 @@ const CardItem = styled(Card)`
       display: flex;
       align-items: center;
       justify-content: center;
+      @media screen and (max-width: 650px) {
+        width: 4rem;
+        height: 4rem;
+      }
       svg {
         font-size: 3rem;
         color: #b8babc;
+        @media screen and (max-width: 650px) {
+          font-size: 1.8rem;
+        }
       }
     }
 
@@ -56,6 +73,9 @@ const CardItem = styled(Card)`
       .title {
         font-size: 1.2rem;
         color: #686687;
+        @media screen and (max-width: 750px) {
+          font-size: 1rem;
+        }
       }
     }
 
@@ -65,6 +85,9 @@ const CardItem = styled(Card)`
       color: #030037;
       font-weight: 600;
       text-transform: capitalize;
+      @media screen and (max-width: 750px) {
+        font-size: 1.2rem;
+      }
     }
     &.site {
       svg {
@@ -102,6 +125,9 @@ const CardActions = styled.div`
       color: #686687;
       padding: 0.5rem;
       font-weight: 600;
+      @media screen and (max-width: 750px) {
+        font-size: 1rem;
+      }
       &:first-child {
         background-color: #f8f9fd;
         color: #153ac7;

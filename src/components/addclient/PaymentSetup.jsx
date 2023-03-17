@@ -102,6 +102,9 @@ function PaymentSetup() {
 const PaymentMode = styled(FormGroup)`
   && {
     flex-basis: 50%;
+    @media screen and (max-width: 950px) {
+      flex-basis: 100%;
+    }
   }
 `;
 
@@ -122,14 +125,24 @@ const PaymentForm = styled.form`
     column-gap: 1rem;
   }
   .address {
+    width: 100%;
     div:nth-child(1) {
       grid-column: span 5;
+      @media screen and (max-width: 950px) {
+        grid-column: span 4;
+      }
     }
     div:nth-child(2) {
       grid-column: span 5;
+      @media screen and (max-width: 950px) {
+        grid-column: span 4;
+      }
     }
     div:nth-child(3) {
       grid-column: span 2;
+      @media screen and (max-width: 950px) {
+        grid-column: 1/-1;
+      }
     }
   }
 

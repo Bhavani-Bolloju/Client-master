@@ -166,6 +166,12 @@ const LoginModal = styled.div`
       display: flex;
       align-items: center;
       padding: 2rem;
+
+      @media screen and (max-width: 950px) {
+        width: 10rem;
+        height: 6rem;
+        padding: 1rem;
+      }
     }
 
     .modal {

@@ -1,6 +1,12 @@
 import React from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { FaUserEdit } from "react-icons/fa";
+import {
+  MdOutlinePayment,
+  MdOutlineDesignServices,
+  MdOutlineViewModule,
+} from "react-icons/md";
 
 function AddClient() {
   return (
@@ -13,7 +19,9 @@ function AddClient() {
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               to="createProfile"
             >
-              <span>01</span> Create Profile
+              <span>01</span>
+              <span className="text">Create Profile</span>
+              <FaUserEdit className="icon" />
             </NavLink>
           </li>
           <li>
@@ -21,7 +29,9 @@ function AddClient() {
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               to="payment"
             >
-              <span>02</span>Payment setup
+              <span>02</span>
+              <span className="text">Payment setup</span>
+              <MdOutlinePayment className="icon" />
             </NavLink>
           </li>
           <li>
@@ -29,7 +39,9 @@ function AddClient() {
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               to="theme"
             >
-              <span>03</span>Theme setup
+              <span>03</span>
+              <span className="text">Theme setup</span>
+              <MdOutlineDesignServices className="icon" />
             </NavLink>
           </li>
           <li>
@@ -37,7 +49,9 @@ function AddClient() {
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               to="module"
             >
-              <span>04</span>Module setup
+              <span>04</span>
+              <span className="text">Module setup</span>
+              <MdOutlineViewModule className="icon" />
             </NavLink>
           </li>
         </ul>
@@ -73,6 +87,21 @@ const AddclienWrapper = styled.section`
         border-bottom: 100% solid #fff;
         width: 100%;
         text-align: center;
+
+        @media screen and (min-width: 1025px) {
+          .icon {
+            display: none;
+          }
+        }
+        @media screen and (max-width: 1025px) {
+          .text {
+            display: none;
+          }
+
+          .icon {
+            font-size: 2rem;
+          }
+        }
       }
 
       a {
