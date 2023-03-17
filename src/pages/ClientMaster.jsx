@@ -62,6 +62,7 @@ const Nav = styled.nav`
     padding: 1.5rem;
     @media screen and (max-width: 950px) {
       position: fixed;
+
       right: 0;
       height: 100%;
       z-index: 10;

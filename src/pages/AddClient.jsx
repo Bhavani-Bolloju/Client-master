@@ -76,7 +76,6 @@ const AddclienWrapper = styled.section`
       }
 
       a {
-        padding: 1.8rem 2rem;
         width: 100%;
         text-decoration: none;
         color: #939596;
@@ -87,8 +86,15 @@ const AddclienWrapper = styled.section`
         align-items: center;
         gap: 1rem;
         font-weight: 600;
+        padding: 1.8rem 2rem;
         width: 100%;
         border-bottom: 3px solid #e6e6e6;
+
+        @media screen and (max-width: 800px) {
+          gap: 0.5rem;
+          padding: 1.5rem 0rem;
+          font-size: 1rem;
+        }
 
         &.active {
           border-bottom: 3px solid #153ac7;

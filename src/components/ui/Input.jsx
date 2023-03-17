@@ -33,6 +33,10 @@ const InputEl = styled.div`
     padding: 1.2rem 1rem;
     width: 100%;
 
+    @media screen and (max-width: 800px) {
+      padding: 1rem 0.5rem;
+    }
+
     &:focus {
       outline: none;
       box-shadow: 0 0px 10px 10px rgba(147, 149, 150, 0.04);
@@ -45,6 +49,9 @@ const InputEl = styled.div`
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
+    @media screen and (max-width: 800px) {
+      font-size: 1rem;
+    }
     .required {
       color: #e84754;
     }

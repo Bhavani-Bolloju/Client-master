@@ -28,12 +28,10 @@ const ClientSearch = styled.div`
   && {
     display: flex;
     padding: 1rem;
-    label {
-      width: fit-content;
-    }
+    width: fit-content;
 
     .table-btns {
-      margin-left: auto;
+      justify-content: flex-end;
       display: flex;
       gap: 1rem;
       button {

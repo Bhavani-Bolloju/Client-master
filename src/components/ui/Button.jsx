@@ -44,6 +44,11 @@ const Btn = styled(Button)`
     align-items: center;
     gap: 1rem;
 
+    @media screen and (max-width: 800px) {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
     &:hover {
       background-color: #1941e1;
     }

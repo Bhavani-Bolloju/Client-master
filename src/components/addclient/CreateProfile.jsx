@@ -151,6 +151,9 @@ const ProfileSection = styled.section`
       .form-btns {
         display: flex;
         gap: 3rem;
+        flex-basis: 100%;
+        flex-grow: 1;
+
         align-items: center;
         svg {
           font-size: 1.8rem;
@@ -166,6 +169,12 @@ const FigImage = styled.div`
   position: relative;
   border-radius: 50%;
   border: 1px solid #e6e6e6;
+
+  @media screen and (max-width: 800px) {
+    width: 7rem;
+    height: 7rem;
+  }
+
   input {
     display: none;
   }
@@ -182,23 +191,5 @@ const FigImage = styled.div`
     }
   }
 `;
-
-// const SubmitButton = styled(Button)`
-//   && {
-//     background-color: #153ac7;
-//     color: #ffffff;
-//     font-size: 1.3rem;
-//     padding: 0.8rem 1.4rem;
-//     text-transform: capitalize;
-//     font-weight: 500;
-//     display: flex;
-//     align-items: center;
-//     gap: 1rem;
-
-//     &:hover {
-//       background-color: #1941e1;
-//     }
-//   }
-// `;
 
 export default CreateProfile;

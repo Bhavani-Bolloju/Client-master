@@ -17,6 +17,16 @@ const Label = styled.label`
   border-radius: 5rem;
   display: flex;
   gap: 1rem;
+  align-items: center;
+
+  @media screen and (max-width: 800px) {
+    width: 15rem;
+    padding: 0.5rem;
+    gap: 0.2rem;
+    input {
+      width: 100%;
+    }
+  }
 
   svg {
     font-size: 1.6rem;
@@ -32,6 +42,9 @@ const Label = styled.label`
     &::placeholder {
       color: #8e96a0;
       font-weight: lighter;
+      @media screen and (max-width: 800px) {
+        font-size: 1rem !important;
+      }
     }
   }
 `;

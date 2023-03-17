@@ -28,9 +28,15 @@ const Section = styled.section`
     }
 
     .table {
+      overflow-x: hidden;
       background-color: #fff;
       .css-41abqd-MuiTableContainer-root {
         max-height: 90%;
+      }
+
+      div {
+        width: 100%;
+        overflow-x: auto;
       }
 
       table {
@@ -42,6 +48,9 @@ const Section = styled.section`
           padding: 1.8rem;
           @media screen and (max-width: 1025px) {
             padding: 1rem 0.8rem;
+          }
+          @media screen and (max-width: 925px) {
+            font-size: 1rem;
           }
         }
 
@@ -56,6 +65,9 @@ const Section = styled.section`
 
             @media screen and (max-width: 1025px) {
               padding: 1rem 0.5rem;
+            }
+            @media screen and (max-width: 925px) {
+              font-size: 1rem;
             }
           }
         }
