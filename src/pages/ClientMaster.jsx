@@ -2,17 +2,14 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { IoIosSearch } from "react-icons/io";
+import InputSearch from "../components/ui/InputSearch";
 
 function ClientMaster() {
   return (
     <Main>
       <Nav>
         <h3>company name</h3>
-        <label>
-          <IoIosSearch />
-          <input type="text" placeholder="Search modules" />
-        </label>
+        <InputSearch />
         <p>client master</p>
         <ul>
           <li>
@@ -58,31 +55,6 @@ const Nav = styled.nav`
     flex-direction: column;
     gap: 1.8rem;
     padding: 1.5rem;
-
-    label {
-      border: 1px solid #e6e6e6;
-      padding: 1rem;
-      border-radius: 5rem;
-      display: flex;
-      gap: 1rem;
-
-      svg {
-        font-size: 1.6rem;
-        color: #b8babc;
-      }
-
-      input {
-        border: none;
-        &:focus {
-          outline: none;
-        }
-
-        &::placeholder {
-          color: #8e96a0;
-          font-weight: lighter;
-        }
-      }
-    }
   }
 
   h3 {
