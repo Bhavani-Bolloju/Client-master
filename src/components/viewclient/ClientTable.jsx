@@ -5,23 +5,14 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { columns, rows } from "./ClientData";
+import { ButtonWrapper } from "../ui/Button";
+import styled from "styled-components";
+
+import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
 
 function ClientTable() {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
@@ -40,43 +31,63 @@ function ClientTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, i) => {
-                return (
-                  <TableRow
-                    hover
-                    role="checkbox"
-                    tabIndex={-1}
-                    key={row.code + "" + i}
-                  >
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number"
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
+            {rows.map((row, i) => {
+              return (
+                <TableRow
+                  hover
+                  role="checkbox"
+                  tabIndex={-1}
+                  key={row.code + "" + i}
+                >
+                  {columns.map((column) => {
+                    const value = row[column.id];
+                    return (
+                      <TableCell key={column.id} align={column.align}>
+                        {column.format && typeof value === "number"
+                          ? column.format(value)
+                          : value}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      /> */}
+      <TableNavs>
+        <ButtonWrapper>
+          <BiChevronLeft />
+          <span>Prev</span>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <span>Next</span>
+          <BiChevronRight />
+        </ButtonWrapper>
+      </TableNavs>
     </Paper>
   );
 }
+
+const TableNavs = styled.div`
+  && {
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    button {
+      background-color: #fff;
+      color: #686687;
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      svg {
+        fill: #686687;
+      }
+    }
+  }
+`;
 
 export default ClientTable;
